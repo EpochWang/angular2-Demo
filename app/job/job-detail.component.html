@@ -1,0 +1,28 @@
+<div>
+    <ul class="employers">
+        <li *ngFor="let job of jobs "
+            (click)="onSelect(job)">
+            {{ job.name }}
+        </li>
+    </ul>
+</div>
+<div *ngIf="selectedJob">
+    <h2>Job Detail</h2>
+    <h4>
+        <input [(ngModel)]="selectedJob.name">
+    </h4>
+    <span>
+        {{ selectedJob.pubDate | date }}
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>
+        {{ selectedJob.pubDate | date:format }}
+    </span>
+    <button (click)="toggleFormat()">Toggle</button>
+    <br>
+    <span>
+        Des:   {{ selectedJob.description }}
+    </span><br>
+    <span>
+        Req:   {{ selectedJob.requirement }}
+    </span>
+</div>

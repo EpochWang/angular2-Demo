@@ -1,0 +1,9 @@
+<div *ngIf="employer">
+    <h3>Employer {{employer.name}}  Details</h3>
+    <label>name: </label>
+    <input value="{{employer.name}}" placeholder="name"><label>(未使用双向绑定）</label>
+    <label>name: </label>
+    <input [(ngModel)]="employer.name" placeholder="name"><label>(使用双向绑定）</label>
+    <employer-form [employer]="employer"></employer-form>
+    <button (click)="goBack()">Back</button>
+</div>

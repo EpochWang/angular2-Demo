@@ -1,0 +1,19 @@
+<h2>Players List</h2>
+<ul class="employers">
+    <li *ngFor="let employer of employers"
+        (click)="onSelect(employer)"
+        [class.selected]="employer === selectedEmployer">
+        <span class="employer-element">
+        <span class="badge">{{employer.id}}</span> {{ employer.name }}</span>
+
+    </li>
+</ul>
+<button class="btn btn-default" (click)="addNew()">Add Player</button>
+<!--<my-employer-detail [employer]="selectedEmployer"></my-employer-detail>-->
+<div *ngIf="selectedEmployer">
+    <h2>
+        Employer  {{selectedEmployer.name | uppercase}}
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+    <button class="delete-button" (click)="deleteEmployer(selectedEmployer, $event)">Delete</button>
+</div>
